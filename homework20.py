@@ -11,9 +11,9 @@ class ImageJpeg:
 				jpegfile.write(self.image_.content)
 		
 
-class ImagePng(ImageJpeg):
+class ImagePng:
 	def __init__(self, image_list):
-		ImageJpeg.__init__(self, image_list)
+		self.image_list = image_list
 		self.image_ = requests.get(self.image_list)
 	
 	def download(self):
@@ -22,9 +22,10 @@ class ImagePng(ImageJpeg):
 				pngfile.write(self.image_.content)
 
 
-class ImageDownload(ImageJpeg):
+class ImageDownload(ImageJpeg, ImagePng):
 	def __init__(self, image_list):
 		ImageJpeg.__init__(self, image_list)
+		ImagePng.__init__(self, image_list)
 		self.image_ = requests.get(self.image_list)
 
 	def download(self):
