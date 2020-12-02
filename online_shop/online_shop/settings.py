@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'users',
+    'users.apps.UsersConfig',
     'crispy_forms',
 ]
 
@@ -127,3 +127,6 @@ LOGIN_URL= 'login'
 LOGIN_REDIRECT_URL = 'main'
 LOGOUT_REDIRECT_URL = 'main'
 
+STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
